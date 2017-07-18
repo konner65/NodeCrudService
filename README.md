@@ -3,6 +3,9 @@
 ### Description: 
 This code provides a REST API that performs CRUD operations in MongoDB using node.js.
 
+### Author:
+Jeffrey Konner Kite 
+
 ### How to Run:
 1. npm install
 2. npm run dev
