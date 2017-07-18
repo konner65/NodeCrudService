@@ -3,23 +3,6 @@ var Food = mongoose.model('Food');
 var foodService = require('../services/FoodService')
 
 /**
- * used to post Food object in mongoDB
- * @param req Takes request body of Food JSON object
- * @param res Either sends out positive message or http error code
- */
-exports.addFood = (req, res) => {
-
-  var food = new Food(req.body);
-
-  food.save().then(item => {
-    res.send(food);
-  }).catch(err => {
-    res.status(400).send("unable to save to database");
-  });
-
- };
-
-/**
  * Used to retrieve all Foods in mongoDB
  * @param  req
  * @param  res
@@ -37,6 +20,23 @@ exports.addFood = (req, res) => {
        res.json(food);
      });
    }
+ };
+ 
+/**
+ * used to post Food object in mongoDB
+ * @param req Takes request body of Food JSON object
+ * @param res Either sends out positive message or http error code
+ */
+exports.addFood = (req, res) => {
+
+  var food = new Food(req.body);
+
+  food.save().then(item => {
+    res.send(food);
+  }).catch(err => {
+    res.status(400).send("unable to save to database");
+  });
+
  };
 
 /**
