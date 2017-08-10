@@ -30,7 +30,7 @@ exports.saveFood = (req, res) => {
   food.save().then(item => {
     res.send(food);
   }).catch(err => {
-    res.status(400).send("unable to save to database");
+    res.status(400).send(err);
   });
 };
 
@@ -55,6 +55,7 @@ exports.updateFood = (req, res) => {
 
   Food.update({_id: id}, req.body, {upsert: true}, (err) => {
     if (err) res.send(err);
+    req.body._id=id;
     res.send(req.body);
   });
 };
@@ -65,6 +66,8 @@ exports.deleteFood = (req, res) => {
 
   Food.remove({ _id: id }, (err) => {
     if (err) res.send(err);
-    else res.send("successfully deleted record " + id);
+    else res.send({
+      "message": "successfully deleted record " + id
+    });
   });
 };
