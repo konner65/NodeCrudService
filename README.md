@@ -1,10 +1,10 @@
 # NodeCrudService
 
-### Description: 
+### Description:
 This code provides a REST API that performs CRUD operations in MongoDB using node.js.
 
 ### Author:
-Jeffrey Konner Kite 
+Jeffrey Konner Kite
 
 ### How to Run:
 1. npm install
@@ -21,11 +21,11 @@ localhost:3000/
   - [GET /foods/[id]](#get-foodsid)
   - [PUT /foods/[id]](#put-foodsid)
   - [DELETE /foods/[id]](#delete-foodsid)
- 
+
 ### GET /foods
 Request Parameters:
   - name (optional)
-  
+
 Examples:
   - GET localhost:3000/foods
   - GET localhost:3000/foods?name=steak
@@ -34,7 +34,7 @@ Returns: Returns all Food objects stored in mongoDB. If name request parameter i
 with the specified name.
 
 Sample Response:
-   
+
     [
       {
         "_id": "596d349146235b5daf2f32b9",
@@ -51,7 +51,7 @@ Sample Response:
         "__v": 0
       }
     ]
-    
+
 ### POST /foods
 Posts a Food object into MongoDB corresponding to the given request body.
 
@@ -124,3 +124,7 @@ Deletes the Food with the corresponding id from the MongoDB database.
 Sample Request: DELETE localhost:3000/596e79cd4057b71be6e1672c
 
 Sample Response: successfully deleted record 596e79cd4057b71be6e1672c
+
+    {
+      "message": "successfully deleted record 596e79cd4057b71be6e1672c"
+    }
