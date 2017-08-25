@@ -2,6 +2,14 @@ var foodService = require('../services/FoodService.js');
 
 module.exports = function(app) {
 
+  //Allow CORS
+  app.all('*', function(req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+
   // GET /foods
   app.route('/foods').get((req, res) => {
     if (req.query.name) {
